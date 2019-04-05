@@ -54,11 +54,13 @@ class LinkedList {
       return value;
     }
     let counter = 1;
-    let current = this.head.next;
     let prevNode = this.head;
+    let current = this.head.next;
 
     while (counter <= index) {
       if (counter === index) {
+        prevNode.next = current.next;
+        this.length--;
         return current.value;
       }
       prevNode = current;
