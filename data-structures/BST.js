@@ -7,7 +7,32 @@ class Tree {
     return this.root;
   }
 
-  add(value) {}
+  add(value) {
+    const node = new Node(value);
+    if (!this.root) {
+      this.root = node;
+    } else {
+      let current = this.root;
+      while (true) {
+        if (value < current.value) {
+          if (current.left) {
+            current = current.left;
+          } else {
+            current.left = node;
+            break;
+          }
+        } else {
+          if (current.right) {
+            current = current.right;
+          } else {
+            current.right = node;
+            break;
+          }
+        }
+      }
+    }
+    return this;
+  }
 }
 
 class Node {
