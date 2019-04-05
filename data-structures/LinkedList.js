@@ -12,6 +12,22 @@ class LinkedList {
     if (this.tail) this.tail.next = node;
 
     this.tail = node;
+    this.length++;
+  }
+
+  pop() {
+    const popped = this.tail;
+    let current = this.head;
+    while (current) {
+      if (this.head === this.tail) {
+        this.head = this.tail = null;
+      }
+      if (current.next === this.tail) {
+        this.tail = current;
+      }
+    }
+    this.length--;
+    return popped.value;
   }
 }
 
