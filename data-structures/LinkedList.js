@@ -21,13 +21,28 @@ class LinkedList {
     while (current) {
       if (this.head === this.tail) {
         this.head = this.tail = null;
+        break;
       }
       if (current.next === this.tail) {
         this.tail = current;
+        break;
       }
+      current = current.next;
     }
     this.length--;
     return popped.value;
+  }
+
+  get(index) {
+    let counter = 0;
+    let current = this.head;
+    while (counter <= index) {
+      if (counter === index) {
+        return current.value;
+      }
+      current = current.next;
+      counter++;
+    }
   }
 }
 
