@@ -80,6 +80,19 @@ class Node {
     this.right.updateInNewLocation();
     this.updateInNewLocation();
   }
+
+  updateInNewLocation() {
+    if (!this.right && !this.left) {
+      this.height = 1;
+    } else if (
+      !this.right ||
+      (this.left && this.right.height < this.left.height)
+    ) {
+      this.height = this.left.height + 1;
+    } else {
+      this.height = this.right.height + 1;
+    }
+  }
 }
 
 class Tree {
