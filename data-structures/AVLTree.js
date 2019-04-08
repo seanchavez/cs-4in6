@@ -43,8 +43,16 @@ class Node {
       if (leftRightHeight > leftLeftHeight) {
         this.left.rotateRR();
       }
-
       this.rotateLL();
+
+    } else if (rightHeight > leftHeight + 1) {
+      const rightRightHeight = (this.right.right) ? this.right.right.height : 0
+      const rightLeftHeight = (this.right.left) ? this.right.left.height : 0
+
+      if (rightLeftHeight > rightRightHeight) {
+        this.right.rotateLL()
+      }
+      this.rotateRR()
     }
   }
 }
