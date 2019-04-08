@@ -44,16 +44,28 @@ class Node {
         this.left.rotateRR();
       }
       this.rotateLL();
-
     } else if (rightHeight > leftHeight + 1) {
-      const rightRightHeight = (this.right.right) ? this.right.right.height : 0
-      const rightLeftHeight = (this.right.left) ? this.right.left.height : 0
+      const rightRightHeight = this.right.right ? this.right.right.height : 0;
+      const rightLeftHeight = this.right.left ? this.right.left.height : 0;
 
       if (rightLeftHeight > rightRightHeight) {
-        this.right.rotateLL()
+        this.right.rotateLL();
       }
-      this.rotateRR()
+      this.rotateRR();
     }
+  }
+
+  rotateRR() {
+    const valueBefore = this.value;
+    const leftBefore = this.left;
+    this.value = this.right.value;
+    this.left = this.right;
+    this.right = this.right.right;
+    this.left.right = this.left.left;
+    this.left.left = leftBefore;
+    this.left.value = valueBefore;
+    this.left.updateInNewLocation();
+    this.updateInNewLocation();
   }
 }
 
