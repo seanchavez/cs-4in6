@@ -30,7 +30,23 @@ class Node {
     this.balance();
   }
 
-  balance() {}
+  balance() {
+    const rightHeight = this.right ? this.right.height : 0;
+    const leftHeight = this.left ? this.left.height : 0;
+
+    console.log(this.value, leftHeight, rightHeight);
+
+    if (leftHeight > rightHeight + 1) {
+      const leftRightHeight = this.left.right ? this.left.right.height : 0;
+      const leftLeftHeight = this.left.left ? this.left.left.height : 0;
+
+      if (leftRightHeight > leftLeftHeight) {
+        this.left.rotateRR();
+      }
+
+      this.rotateLL();
+    }
+  }
 }
 
 class Tree {
