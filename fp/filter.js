@@ -17,3 +17,11 @@ function showOutOfCADevs(people) {
     .map(person => person.name.toUpperCase())
     .reduce((acc, name) => `${acc}, ${name}`);
 }
+
+function myFilter(arr, cb) {
+  const results = [];
+  for (let el of arr) {
+    if (cb(el)) results.push(el);
+  }
+  return results;
+}
