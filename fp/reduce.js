@@ -7,3 +7,9 @@ function concatenateStringsWithSpaces(array) {
     ""
   );
 }
+
+function squaresAndSubtracts(array) {
+  array
+    .map(el => el * el)
+    .reduce((accumulator, currentValue) => accumulator - currentValue);
+}
