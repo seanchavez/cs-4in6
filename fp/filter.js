@@ -10,3 +10,10 @@ const isEven = num => {
 function filterState(people, state) {
   return people.filter(person => person.state === state);
 }
+
+function showOutOfCADevs(people) {
+  return people
+    .filter(person => person.state !== "CA")
+    .map(person => person.name.toUpperCase())
+    .reduce((acc, name) => `${acc}, ${name}`);
+}
