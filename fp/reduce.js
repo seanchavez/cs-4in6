@@ -13,3 +13,11 @@ function squaresAndSubtracts(array) {
     .map(el => el * el)
     .reduce((accumulator, currentValue) => accumulator - currentValue);
 }
+
+function myReduce(array, callback, seed) {
+  let result = seed;
+  for (let el of array) {
+    result = callback(result, el);
+  }
+  return result;
+}
