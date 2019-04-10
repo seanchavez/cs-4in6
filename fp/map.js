@@ -10,6 +10,14 @@ function SquareEach(array) {
 
 const square = value => value * value;
 
-function doubleAndSquareEach(arry) {
+function doubleAndSquareEach(array) {
   return array.map(double).map(square);
+}
+
+function myMap(array, callback) {
+  const results = [];
+  for (let el of array) {
+    results.push(callback(el));
+  }
+  return results;
 }
