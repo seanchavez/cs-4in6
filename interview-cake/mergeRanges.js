@@ -1,6 +1,6 @@
 const clonedeep = require("lodash.clonedeep");
 
-const mergeRanges = (meetings) => {
+function mergeRanges(meetings) {
   meetingsClone = clonedeep(meetings);
 
   const sorted = meetingsClone.sort((a, b) => a.startTime - b.startTime);
