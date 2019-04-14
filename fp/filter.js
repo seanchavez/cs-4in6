@@ -6,7 +6,6 @@ const isEven = num => {
     return true;
   } else return false;
 };
-const turd = () => 'turd'
 
 function filterState(people, state) {
   return people.filter(person => person.state === state);
