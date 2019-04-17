@@ -8,6 +8,8 @@ function concatenateStringsWithSpaces(array) {
   );
 }
 
+const stupid = "you";
+
 function squaresAndSubtracts(array) {
   array
     .map(el => el * el)
